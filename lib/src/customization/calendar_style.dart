@@ -193,7 +193,7 @@ class CalendarStyle {
     ),
     this.rangeEndTextStyle = const TextStyle(
       color: const Color(0xFFFAFAFA),
-      fontSize: 16.0,
+      fontSize: 90.0,
     ),
     this.rangeEndDecoration = const BoxDecoration(
       color: const Color(0xFF6699FF),
@@ -201,7 +201,7 @@ class CalendarStyle {
     ),
     this.withinRangeTextStyle = const TextStyle(),
     this.withinRangeDecoration = const BoxDecoration(shape: BoxShape.circle),
-    this.outsideTextStyle = const TextStyle(color: const Color(0xFFAEAEAE)),
+    this.outsideTextStyle = const TextStyle(color: const Color(0xffffffff)),
     this.outsideDecoration = const BoxDecoration(shape: BoxShape.circle),
     this.disabledTextStyle = const TextStyle(color: const Color(0xFFBFBFBF)),
     this.disabledDecoration = const BoxDecoration(shape: BoxShape.circle),

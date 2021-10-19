@@ -72,7 +72,7 @@ class CellContent extends StatelessWidget {
             alignment: alignment,
             child: Text(text, style: calendarStyle.disabledTextStyle),
           );
-    } else if (isSelected) {
+    } else if (isSelected && !isOutside) {
       cell = calendarBuilders.selectedBuilder?.call(context, day, focusedDay) ??
           AnimatedContainer(
             duration: duration,

@@ -1,6 +1,7 @@
 // Copyright 2019 Aleksander Woźniak
 // SPDX-License-Identifier: Apache-2.0
 
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 
@@ -56,34 +57,18 @@ class CalendarHeader extends StatelessWidget {
               margin: headerStyle.leftChevronMargin,
               padding: headerStyle.leftChevronPadding,
             ),
-          Expanded(
-            child: headerTitleBuilder?.call(context, focusedMonth) ??
-                GestureDetector(
-                  onTap: onHeaderTap,
-                  onLongPress: onHeaderLongPress,
-                  child: Text(
-                    text,
-                    style: headerStyle.titleTextStyle,
-                    textAlign: headerStyle.titleCentered
-                        ? TextAlign.center
-                        : TextAlign.start,
-                  ),
+          headerTitleBuilder?.call(context, focusedMonth) ??
+              GestureDetector(
+                onTap: onHeaderTap,
+                onLongPress: onHeaderLongPress,
+                child: Text(
+                  text,
+                  style: headerStyle.titleTextStyle,
+                  textAlign: headerStyle.titleCentered
+                      ? TextAlign.center
+                      : TextAlign.start,
                 ),
-          ),
-          if (headerStyle.formatButtonVisible &&
-              availableCalendarFormats.length > 1)
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: FormatButton(
-                onTap: onFormatButtonTap,
-                availableCalendarFormats: availableCalendarFormats,
-                calendarFormat: calendarFormat,
-                decoration: headerStyle.formatButtonDecoration,
-                padding: headerStyle.formatButtonPadding,
-                textStyle: headerStyle.formatButtonTextStyle,
-                showsNextFormat: headerStyle.formatButtonShowsNext,
               ),
-            ),
           if (headerStyle.rightChevronVisible)
             CustomIconButton(
               icon: headerStyle.rightChevronIcon,
@@ -91,6 +76,19 @@ class CalendarHeader extends StatelessWidget {
               margin: headerStyle.rightChevronMargin,
               padding: headerStyle.rightChevronPadding,
             ),
+          Expanded(child: SizedBox.shrink()),
+          Padding(
+            padding: const EdgeInsets.only(left: 8.0),
+            child: FormatButton(
+              onTap: onFormatButtonTap,
+              availableCalendarFormats: availableCalendarFormats,
+              calendarFormat: calendarFormat,
+              decoration: headerStyle.formatButtonDecoration,
+              padding: headerStyle.formatButtonPadding,
+              textStyle: headerStyle.formatButtonTextStyle,
+              showsNextFormat: headerStyle.formatButtonShowsNext,
+            ),
+          ),
         ],
       ),
     );
